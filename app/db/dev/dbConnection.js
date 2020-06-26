@@ -35,7 +35,7 @@ const createSlotTable = () => {
         salon_id INTEGER REFERENCES salon(id) ON DELETE CASCADE, 
         slot_name VARCHAR(300) NOT NULL,
         slot_date DATE NOT NULL, 
-        status float DEFAULT(1.00), 
+         
         created_on DATE NOT NULL)`;
     pool.query(slotCreateQuery).then((res) => {
         console.log(res);
@@ -54,7 +54,8 @@ const createBookingTable = () => {
         booking_date DATE, 
         fullname VARCHAR (100) NOT NULL, 
         email VARCHAR(100) NOT NULL, 
-        created_on DATE NOT NULL, 
+        status float DEFAULT(1.00),
+        created_on DATE NOT NULL,
         PRIMARY KEY (id, slot_id, user_id))`;
     pool.query(bookingCreateQuery).then((res) =>{
         console.log(res);

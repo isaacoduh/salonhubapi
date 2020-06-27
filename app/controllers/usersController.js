@@ -36,10 +36,10 @@ const createUser = async(req, res) => {
         return res.status(status.created).send(successResponse);
     } catch (error) {
         if (error.routine === '_bt_check_unique') {
-            errorMessage.error = 'User with that EMAIL already exist';
+            errorResponse.error = 'User with that EMAIL already exist';
             return res.status(status.conflict).send(errorMessage);
         }
-        errorMessage.error = 'Operation was not successful';
+        errorResponse.error = 'Operation was not successful';
         return res.status(status.error).send(errorMessage);
     }
 }
